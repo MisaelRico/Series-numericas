@@ -3,6 +3,10 @@ import SerieCalculator from "./SerieCalculator";
 describe('Serie Calculator', () => {
 
     //Casos de prueba con numeros naturales ( n = 1 a 10)
+    test('debería lanzar un error cuando n=1 debido a primo(0)', () => {
+        expect(() => SerieCalculator.calculateSeriesTerm(1)).toThrow("Para que pueda resolverse correctamente la serie principal el valor ingresado debe ser mayor o igual a 2");   
+    });
+    
     test('debería devolver el término correcto de la serie para n = 1 a 10 (primeros 10 números naturales)', () => {
         expect(SerieCalculator.calculateSeriesTerm(2)).toBe(7);
         expect(SerieCalculator.calculateSeriesTerm(3)).toBe(7);
@@ -14,10 +18,6 @@ describe('Serie Calculator', () => {
         expect(SerieCalculator.calculateSeriesTerm(9)).toBe(-163);
         expect(SerieCalculator.calculateSeriesTerm(10)).toBe(-298);
     });
-
-    // test('debería lanzar un error cuando n=1 debido a primo(0)', () => {
-    //     expect(() => SerieCalculator.calculateSeriesTerm(1)).toThrow("Para que pueda resolverse correctamente la serie principal el valor ingresado debe ser mayor o igual a 2");   
-    // });
 
     //Pruebas de manejo de errores
     test('debería lanzar un error si n no es un número entero', () => {

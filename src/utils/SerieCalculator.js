@@ -11,7 +11,7 @@ class SerieCalculator {
             return 1;
         }
 
-        return SerieCalculator._getFibonacciSerie(n-1) + SerieCalculator._getFibonacciSerie(n-2);
+        return this._getFibonacciSerie(n-1) + this._getFibonacciSerie(n-2);
     }
 
     //Calculo y validaciones de serie Triangular
@@ -59,7 +59,7 @@ class SerieCalculator {
         //Calculo de serie primo
         while (count < n) {
             num++;
-            if (SerieCalculator._isPrime(num)) {
+            if (this._isPrime(num)) {
                 count++;
             }
         }
@@ -80,9 +80,9 @@ class SerieCalculator {
         }
 
         //Se guardan los resultados de las diferentes series
-        const triangularSerieResult = SerieCalculator._getTriangularSerie(n + 2);
-        const primeSerieResult = SerieCalculator._getPrimeSerie(n-1);
-        const fibonacciSerieResult = SerieCalculator._getFibonacciSerie(n);
+        const triangularSerieResult = this._getTriangularSerie(n + 2);
+        const primeSerieResult = this._getPrimeSerie(n-1);
+        const fibonacciSerieResult = this._getFibonacciSerie(n);
 
         //serie principal
         return (2 * triangularSerieResult) - (3 * primeSerieResult) - (7 * fibonacciSerieResult)
