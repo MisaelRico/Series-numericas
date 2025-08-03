@@ -3,7 +3,7 @@ import ResultDisplay from "./components/ResultDisplay";
 import InputForm from "./components/InputForm";
 
 function App() {
-    //Se guarda el error y el resultado
+    //Se guarda el resultado o el error según sea el caso
     const { result, error, calculateTerm } = useSeriesCalculator();
 
     return (

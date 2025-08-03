@@ -21,16 +21,16 @@ describe('Serie calculator', () => {
 
     //Pruebas de manejo de errores
     test('debería lanzar un error si n no es un número entero', () => {
-        expect(() => SerieCalculator.calculateSeriesTerm(3.5)).toThrow("La entrada 'n' debe ser un número entero.");
+        expect(() => SerieCalculator.calculateSeriesTerm(3.5)).toThrow("La entrada del numero natural (n) debe ser un número entero.");
     });
 
     //Test para datos que no sean numeros enteros
     test('debería lanzar un error para una entrada no numérica', () => {
-        expect(() => SerieCalculator.calculateSeriesTerm("test")).toThrow("La entrada 'n' debe ser un número entero.");
+        expect(() => SerieCalculator.calculateSeriesTerm("test")).toThrow("La entrada del numero natural (n) debe ser un número entero.");
     });
 
     //Test para numeros negativos
     test('debería lanzar un error para n negativo', () => {
-        expect(() => SerieCalculator.calculateSeriesTerm(-5)).toThrow("El valor de 'n' no puede ser negativo.");
+        expect(() => SerieCalculator.calculateSeriesTerm(-5)).toThrow("El valor del numero natural (n) no puede ser negativo.");
     });
 });

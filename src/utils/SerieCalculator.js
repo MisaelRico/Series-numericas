@@ -31,6 +31,7 @@ class SerieCalculator {
         if (num <= 3) return true;
         if (num % 2 === 0 || num % 3 === 0) return false;
 
+        //iteración para encontrar la posición del número primo
         for (let i = 5; i * i <= num; i = i + 6) {
             if (num % i === 0 || num % (i + 2) === 0) {
                 return false;
@@ -77,11 +78,12 @@ class SerieCalculator {
             throw new Error("El valor del numero natural (n) no puede ser negativo.")
         }
 
-        //Obtener resultado con los valores ingresados
+        //Se guarda el resultado de los calculos de cada serie
         const triangularSerieResult = SerieCalculator._getTriangularSerie(n + 2);
         const primeSerieResult = SerieCalculator._getPrimeSerie(n-1);
         const fibonacciSerieResul = SerieCalculator._getFibonacciSerie(n);
 
+        //serie principal
         return (2 * triangularSerieResult) - (3 * primeSerieResult) - (7 * fibonacciSerieResul)
     }
 }
