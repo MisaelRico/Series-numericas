@@ -1,9 +1,9 @@
-import React from "react";
 import useSeriesCalculator from "./hooks/useSeriesCalculation";
 import ResultDisplay from "./components/ResultDisplay";
 import InputForm from "./components/InputForm";
 
 function App() {
+    //Se guarda el error y el resultado
     const { result, error, calculateTerm } = useSeriesCalculator();
 
     return (

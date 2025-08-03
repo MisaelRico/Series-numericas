@@ -4,20 +4,13 @@ class SerieCalculator {
 
     //Calculo y validaciones para serie fibonacci
     static _getFibonacciSerie(n) {
-        if (typeof n !== 'number' || !Number.isInteger(n)) {
-            throw new Error("El valor ingreado debe ser un número entero.");            
-        }
-        if (n < 0) {
-            throw new Error("El valor ingresado no puede ser un negativo.");            
-        }
-
         if(n === 0) return 0;
         if(n === 1) return 1;
 
         let a= 0;
         let b = 1;
 
-        //calculo número Fibonacci
+        //Calculo número Fibonacci
         for (let i = 2; i <= n; i++){
             let temp = a + b;
             a=b;
@@ -28,13 +21,6 @@ class SerieCalculator {
 
     //Calculo y validaciones de serie Triangular
     static _getTriangularSerie(n) {
-        if (typeof n !== 'number' || !Number.isInteger(n)) {
-            throw new Error("El valor ingresado debe ser un número entero.");            
-        }
-        if (n <= 0) {
-            throw new Error("El valor ingresado debe ser mayor o igual a 1.");            
-        }
-
         //Formula para calcular serie triangular
         return n * ( n + 1) / 2;
     }
@@ -83,16 +69,12 @@ class SerieCalculator {
     //Método para el calculo de la serie principal
     static calculateSeriesTerm(n) {
         if (typeof n !== 'number' || !Number.isInteger(n)) {
-            throw new Error("La entrada 'n' debe ser un número entero.");
+            throw new Error("La entrada del numero natural (n) debe ser un número entero.");
         }
 
         //Validacion para primo (n-1)
         if (n < 0) {
-            throw new Error("El valor de 'n' no puede ser negativo.")
-        }
-
-        if (n === 0) {
-            throw new Error("Para que pueda resolverse correctamente la serie principal el valor ingresado debe ser mayor o igual a 2")
+            throw new Error("El valor del numero natural (n) no puede ser negativo.")
         }
 
         //Obtener resultado con los valores ingresados
