@@ -4,19 +4,14 @@ class SerieCalculator {
 
     //Calculo y validaciones para serie fibonacci
     static _getFibonacciSerie(n) {
-        if(n === 0) return 0;
-        if(n === 1) return 1;
-
-        let a= 0;
-        let b = 1;
-
-        //Calculo número Fibonacci
-        for (let i = 2; i <= n; i++){
-            let temp = a + b;
-            a=b;
-            b=temp;
+        if (n === 0) {
+            return 0;
         }
-        return b;
+        if (n === 1) {
+            return 1;
+        }
+
+        return SerieCalculator._getFibonacciSerie(n-1) + SerieCalculator._getFibonacciSerie(n-2);
     }
 
     //Calculo y validaciones de serie Triangular
@@ -25,15 +20,20 @@ class SerieCalculator {
         return n * ( n + 1) / 2;
     }
 
-    //verificar que el valor ingresado sea un número primo
+    //Funcion para conocer la posición del número primo
     static _isPrime(num) {
-        if (num <= 1) return false;
-        if (num <= 3) return true;
-        if (num % 2 === 0 || num % 3 === 0) return false;
+        
+        //El numero 2 es el único número par primo
+        if (num === 2) return true;
+        
+        //Cualquier numero menor o igual a 1, y todos los numeros pares NO son primos
+        if (num <= 1 || num % 2 === 0) {
+            return false;
+        }
 
-        //iteración para encontrar la posición del número primo
-        for (let i = 5; i * i <= num; i = i + 6) {
-            if (num % i === 0 || num % (i + 2) === 0) {
+        //Busca si algún número impar es divisinle, si es divisible entonces no es primo
+        for (let i = 3; i < num; i += 2) {
+            if (num % i === 0) {
                 return false;
             }
         }
@@ -69,6 +69,7 @@ class SerieCalculator {
 
     //Método para el calculo de la serie principal
     static calculateSeriesTerm(n) {
+        
         if (typeof n !== 'number' || !Number.isInteger(n)) {
             throw new Error("La entrada del numero natural (n) debe ser un número entero.");
         }
@@ -78,13 +79,13 @@ class SerieCalculator {
             throw new Error("El valor del numero natural (n) no puede ser negativo.")
         }
 
-        //Se guarda el resultado de los calculos de cada serie
+        //Se guardan los resultados de las diferentes series
         const triangularSerieResult = SerieCalculator._getTriangularSerie(n + 2);
         const primeSerieResult = SerieCalculator._getPrimeSerie(n-1);
-        const fibonacciSerieResul = SerieCalculator._getFibonacciSerie(n);
+        const fibonacciSerieResult = SerieCalculator._getFibonacciSerie(n);
 
         //serie principal
-        return (2 * triangularSerieResult) - (3 * primeSerieResult) - (7 * fibonacciSerieResul)
+        return (2 * triangularSerieResult) - (3 * primeSerieResult) - (7 * fibonacciSerieResult)
     }
 }
 
